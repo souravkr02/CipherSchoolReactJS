@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<h1>JavaScript Assignment (Questions)</h1>
+<p>Check Console for Output</p>
+By: Sourav Kumar
+
+<script>
+    //Very Easy
+    //Q1. Convert Minutes into Seconds
+
+    const convert = (data) => {
+        return (data * 60)
+    }
+    console.log(convert(5));
+    console.log(convert(3));
+    console.log(convert(2));
+
+
+    //Q2. Divides Evenly
+
+
+    const dividesEvenly = (a, b) => {
+        if (a % b === 0)
+            return ('true')
+        else
+            return ('false')
+    }
+    console.log(dividesEvenly(98, 7));
+    console.log(dividesEvenly(85, 4));
+
+
+    //Easy
+    //Q1 Count Instance of a character in a string
+
+
+    const charCount = (letter, str) => {
+        var letter_Count = 0;
+        for (var position = 0; position < str.length; position++) {
+            if (str.charAt(position) == letter) {
+                letter_Count += 1;
+            }
+        }
+        return letter_Count;
+    }
+
+    console.log(charCount('a', "edabit"));
+    console.log(charCount('c', "Chamber of secrets"));
+    console.log(charCount('b', "big fat bubble"));
+
+    //Q2 Add upto given number
+
+
+    const addUp = (number) => {
+        var sum = 0;
+        for (var i = number; i > 0; i--) {
+            sum = sum + i;
+        }
+        return sum;
+    }
+    console.log(addUp(4));
+    console.log(addUp(13));
+    console.log(addUp(600));
+
+
+    //Q3 Replace vowels with another character
+
+    const replaceVowels = (string) => {
+        var str = string.split('');
+        for (var t = 0; t < str.length; t++) {
+            if (str[t] == 'a') {
+                str[t] = '1';
+            }
+            if (str[t] == 'e') {
+                str[t] = '2';
+            }
+            if (str[t] == 'i') {
+                str[t] = '3';
+            }
+            if (str[t] == 'o') {
+                str[t] = '4';
+            }
+            if (str[t] == 'u') {
+                str[t] = '5';
+            }
+        }
+        str.join('');
+        for (var t = 0; t < str.length; t++) {
+            return str;
+        }
+    }
+    console.log(replaceVowels("karachi"));
+    console.log(replaceVowels("chembur"));
+    console.log(replaceVowels("khandbari"));
+
+    //Medium
+    //Q1. Reverse Words Starting with a Particular Letter
+
+    const specialReverse = (str1, str2) => {
+        var wordArray = str1.split(' ');
+        var size = wordArray.length;
+        for (var i = 0; i < size; i++) {
+            if (wordArray[i][0] === str2) {
+                var temp = wordArray[i].split('').reverse();
+                wordArray[i] = temp.join('');
+            }
+        }
+
+        return wordArray.join(' ');
+    }
+
+    console.log(specialReverse("word searches are super fun", "s"));
+    console.log(specialReverse("first man to walk on moon", "m"));
+    console.log(specialReverse("peter piper picked pickled peppers", "p"));
+
+
+    //Q2. Hitting the Jackpot
+
+    const testJackpot = (params) => {
+        if (params.map(p => p === params[0]).filter(a => a).length = 4) {
+            var res = "true";
+        }
+        if (params.map(p => p === params[0]).filter(a => a).length != 4) {
+            var res = "false";
+        }
+        return res;
+    }
+
+    console.log(testJackpot(["@", "@", "@", "@"]));
+    console.log(testJackpot(["abc", "abc", "abc", "abc"]));
+    console.log(testJackpot(["SS", "SS", "SS", "SS"]));
+    console.log(testJackpot(["&&", "&", "&&", "&&&"]));
+    console.log(testJackpot(["SS", "SS", "SS", "Ss"]));
+
+    // Q3. Remove Duplicates from an Array
+
+    const removeDups = (params) => {
+        var uniqueArray = [];
+
+        for (var i = 0; i < params.length; i++) {
+            if (uniqueArray.indexOf(params[i]) === -1) {
+                uniqueArray.push(params[i]);
+            }
+        }
+        return ('[' + uniqueArray + ']');
+    }
+    console.log(removeDups([1, 0, 1, 0]));
+    console.log(removeDups(["The", "big", "cat"]));
+    console.log(removeDups(["John", "Taylor", "John"]));
+
+    //Hard
+    //Q1. Get Real Type
+
+    const realType = (value) => {
+        return Object.prototype.toString.call(value);
+    }
+    console.log(realType(1));
+    console.log(realType("a"));
+    console.log(realType(true));
+    console.log(realType([]));
+    console.log(realType(null));
+
+    //Q2. Numbers in String
+
+    const numInStr = (params) => {
+        var array = [];
+        var k = 0;
+        for (var i = 0; i < params.length; i++) {
+            var count = 0;
+            var temp = params[i];
+            var temp1 = temp.split('');
+            for (var j = 0; j < temp1.length; j++) {
+                if (!isNaN(temp1[j]) && temp1[j] != " ") {
+                    count++;
+                }
+            }
+            if (count > 0) {
+                array[k] = temp1.join('');
+                k++;
+            }
+        }
+        return (" [" + array + "] ");
+    }
+
+    console.log(numInStr(["1a", "a", "2b", "b"]));
+    console.log(numInStr(["abc", "abc10"]));
+    console.log(numInStr(["abc", "ab10c", "a10bc", "bcd"]));
+    console.log(numInStr(["this is a test", "test1"]));
+
+
+</script>
